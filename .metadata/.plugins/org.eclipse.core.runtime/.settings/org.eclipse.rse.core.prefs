@@ -1,4 +1,3 @@
-activeuserprofiles=Mamba;Team
 eclipse.preferences.version=1
-org.eclipse.rse.systemtype.local.systemType.defaultUserId=Tobi
-useridperkey=Mamba.Local\=Tobi;
+org.eclipse.rse.systemtype.local.systemType.defaultUserId=tobias.scholl
+useridperkey=r040523b-12.Local\=tobias.scholl;
