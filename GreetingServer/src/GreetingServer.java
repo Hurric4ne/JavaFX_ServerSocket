@@ -1,43 +1,41 @@
 // File Name GreetingServer.java
 
 import java.net.*;
+import java.util.Scanner;
 import java.io.*;
 
 public class GreetingServer extends Thread {
 	private ServerSocket serverSocket;
 
 	public GreetingServer(int port) throws IOException {
-		serverSocket = new ServerSocket(port);
+		serverSocket = new ServerSocket();
 		serverSocket.setSoTimeout(10000);
+		serverSocket.bind(new InetSocketAddress("127.0.0.2", 9000));
 	}
-
+	
 	public void run() {
-		while (true) {
+		try {
+			System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
+			Socket server = serverSocket.accept();
 			try {
-				System.out.println("Waiting for client on port "
-						+ serverSocket.getLocalPort() + "...");
-				Socket server = serverSocket.accept();
-				System.out.println("Just connected to "
-						+ server.getRemoteSocketAddress());
-				DataInputStream in = new DataInputStream(
-						server.getInputStream());
-				System.out.println(in.readUTF());
-				DataOutputStream out = new DataOutputStream(
-						server.getOutputStream());
-				out.writeUTF("Thank you for connecting to "
-						+ server.getLocalSocketAddress() + "\nGoodbye!");
-				server.close();
-			} catch (SocketTimeoutException s) {
-				System.out.println("Socket timed out!");
-				break;
-			} catch (IOException e) {
-				e.printStackTrace();
-				break;
+				BufferedReader br = new BufferedReader(new FileReader("hallo.txt"));
+				for (String line = br.readLine(); line != null; line = br.readLine()) {
+					System.out.println(line);
+				}
+				br.close();
+			} 
+			catch (FileNotFoundException e) {
+				System.err.println("File not found!");	
 			}
+			server.close();
+		} catch (SocketTimeoutException s) {
+			System.out.println("Socket timed out!");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		int port = 9000;
 		try {
 			Thread t = new GreetingServer(port);
