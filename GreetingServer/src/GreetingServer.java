@@ -9,7 +9,7 @@ public class GreetingServer extends Thread {
 
 	public GreetingServer(int port) throws IOException {
 		serverSocket = new ServerSocket();
-		serverSocket.setSoTimeout(10000);
+		//serverSocket.setSoTimeout(10000);
 		serverSocket.bind(new InetSocketAddress("127.0.0.2", 9000));
 	}
 	
@@ -19,8 +19,16 @@ public class GreetingServer extends Thread {
 			Socket server = serverSocket.accept();
 			try {
 				BufferedReader br = new BufferedReader(new FileReader("hallo.txt"));
+				/*
 				for (String line = br.readLine(); line != null; line = br.readLine()) {
 					System.out.println(line);
+				}
+				*/
+				PrintWriter out = new PrintWriter(server.getOutputStream(), true);
+				String line = "";
+				while ((line = br.readLine()) != null) {
+					out.println(line);
+					
 				}
 				br.close();
 			} 

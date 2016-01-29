@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<fx:root maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreetingClient">
+   <children>
+      <Button fx:id="btn_connect" layoutX="120.0" layoutY="367.0" mnemonicParsing="false" onAction="#btn_action" text="Connect" />
+      <MenuBar layoutY="2.0" maxHeight="30.0" maxWidth="300.0" minHeight="30.0" minWidth="300.0" prefHeight="30.0" prefWidth="300.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="btn_close" mnemonicParsing="false" onAction="#btn_action" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="btn_info" mnemonicParsing="false" onAction="#action_info" text="Info" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Separator layoutY="350.0" prefWidth="300.0" />
+      <TextArea fx:id="text_area" layoutY="32.0" prefHeight="320.0" prefWidth="300.0" />
+   </children>
+</fx:root>

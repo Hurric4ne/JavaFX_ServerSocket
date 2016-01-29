@@ -1,0 +1,41 @@
+// File Name GreetingClient.java
+
+import java.io.*;
+import java.net.*;
+import javafx.application.Application;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+
+public class GreetingClient extends Application {
+	/*
+    @FXML
+    void btn_action(ActionEvent event) {
+		
+    	String serverName = "127.0.0.2";
+		int port = 9000;
+		try {
+			System.out.println("Connecting to " + serverName + " on port " + port);
+			Socket client = new Socket(serverName, port);
+			client.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+    }
+	 */
+	public static void main(String[] args) {
+        launch(args);
+    }
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("F:/PortableApps/Documents/Eclipse/JavaFX_ServerSocket/GreetingClient/GUI_Client.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("FXML Welcome");
+        stage.setScene(scene);
+        stage.show();
+	}
+}
