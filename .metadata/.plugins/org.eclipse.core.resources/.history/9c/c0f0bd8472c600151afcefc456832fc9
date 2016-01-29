@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class GreetingServer extends Thread {
-	private static ServerSocket serverSocket;
+	private ServerSocket serverSocket;
 
 	public GreetingServer(int port) throws IOException {
 		serverSocket = new ServerSocket();

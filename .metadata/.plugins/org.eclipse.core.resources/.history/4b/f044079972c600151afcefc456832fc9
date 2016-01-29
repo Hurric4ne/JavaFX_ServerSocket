@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class GreetingServer extends Thread {
-	private static ServerSocket serverSocket;
+	private ServerSocket serverSocket;
 
 	public GreetingServer(int port) throws IOException {
 		serverSocket = new ServerSocket();
@@ -14,7 +14,7 @@ public class GreetingServer extends Thread {
 	}
 
 	public void run() {
-		while (true) {
+		//while (true) {
 			try {
 				System.out.println("Waiting for client on port "
 						+ serverSocket.getLocalPort() + "...");
@@ -31,17 +31,17 @@ public class GreetingServer extends Thread {
 					br.close();
 				} catch (FileNotFoundException e) {
 					System.err.println("File not found!");
-					break;
+					//break;
 				}
 				server.close();
 			} catch (SocketTimeoutException s) {
 				System.out.println("Socket timed out!");
-				break;
+				//break;
 			} catch (IOException e) {
 				e.printStackTrace();
-				break;
+				//break;
 			}
-		}
+		//} ende while(true)
 	}
 
 	public static void main(String[] args) throws IOException {

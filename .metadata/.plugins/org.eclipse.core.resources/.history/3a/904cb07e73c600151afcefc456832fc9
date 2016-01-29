@@ -9,12 +9,12 @@ public class GreetingServer extends Thread {
 
 	public GreetingServer(int port) throws IOException {
 		serverSocket = new ServerSocket();
-		serverSocket.setSoTimeout(10000);
+		serverSocket.setSoTimeout(15000);
 		serverSocket.bind(new InetSocketAddress("127.0.0.2", 9001));
 	}
 
 	public void run() {
-		while (true) {
+		//while (true) {
 			try {
 				System.out.println("Waiting for client on port "
 						+ serverSocket.getLocalPort() + "...");
@@ -31,17 +31,24 @@ public class GreetingServer extends Thread {
 					br.close();
 				} catch (FileNotFoundException e) {
 					System.err.println("File not found!");
-					break;
+					//break;
 				}
 				server.close();
 			} catch (SocketTimeoutException s) {
 				System.out.println("Socket timed out!");
-				break;
+				//break;
 			} catch (IOException e) {
 				e.printStackTrace();
-				break;
+				//break;
 			}
-		}
+		//} ende while(true)
+			int port = 9001;
+			try {
+				Thread t = new GreetingServer(port);
+				t.start();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 	}
 
 	public static void main(String[] args) throws IOException {

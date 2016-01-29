@@ -8,7 +8,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreetingClient">
    <children>
       <Button fx:id="btn_info_close" layoutX="76.0" layoutY="275.0" mnemonicParsing="false" onAction="#action_about_close" text="Close" />
-      <TextArea fx:id="info_area" disable="true" prefHeight="264.0" prefWidth="200.0" text="Infos und so!">
+      <TextArea fx:id="info_area" prefHeight="264.0" prefWidth="200.0" text="Infos und so!">
          <font>
             <Font size="12.0" />
          </font></TextArea>

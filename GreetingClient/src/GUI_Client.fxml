@@ -26,7 +26,7 @@
       <Separator layoutY="350.0" prefWidth="300.0" />
       <TextArea fx:id="text_area" layoutY="32.0" prefHeight="320.0" prefWidth="400.0">
          <font>
-            <Font size="12.0" />
+            <Font name="Courier New" size="12.0" />
          </font></TextArea>
    </children>
 </Pane>

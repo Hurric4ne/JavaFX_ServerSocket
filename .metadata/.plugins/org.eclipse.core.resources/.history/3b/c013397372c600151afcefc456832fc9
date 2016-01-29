@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class GreetingServer extends Thread {
-	private static ServerSocket serverSocket;
+	private ServerSocket serverSocket;
 
 	public GreetingServer(int port) throws IOException {
 		serverSocket = new ServerSocket();
@@ -33,7 +33,7 @@ public class GreetingServer extends Thread {
 					System.err.println("File not found!");
 					break;
 				}
-				server.close();
+				
 			} catch (SocketTimeoutException s) {
 				System.out.println("Socket timed out!");
 				break;
