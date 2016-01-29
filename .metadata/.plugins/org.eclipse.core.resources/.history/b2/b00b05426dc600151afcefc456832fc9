@@ -42,12 +42,10 @@ public class GreetingClient extends Application{
 				Socket client = new Socket(serverName, port);
 				BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 				String line = "";
-				String text = "";
 				while ((line = in.readLine()) != null) {
-					text = text+"\n"+line;
+					String s = s+line;
 				}
-				text_area.setText(text);
-				System.out.println(text); //debug
+				text_area.setText(s);
 				client.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -56,7 +54,6 @@ public class GreetingClient extends Application{
     }
     @FXML
     void action_close(ActionEvent event) {
-    	
 		System.exit(0);
     }
     @FXML

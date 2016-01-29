@@ -47,7 +47,7 @@ public class GreetingClient extends Application{
 					text = text+"\n"+line;
 				}
 				text_area.setText(text);
-				System.out.println(text); //debug
+				System.out.println(text);
 				client.close();
 			} catch (IOException e) {
 				e.printStackTrace();

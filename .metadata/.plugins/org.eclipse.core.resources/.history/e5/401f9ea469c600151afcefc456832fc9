@@ -28,6 +28,7 @@ public class GreetingServer extends Thread {
 				String line = "";
 				while ((line = br.readLine()) != null) {
 					out.println(line);
+					
 				}
 				
 				br.close();
