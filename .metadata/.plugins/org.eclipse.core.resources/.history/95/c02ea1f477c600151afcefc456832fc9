@@ -56,11 +56,9 @@ public class GreetingClient extends Application {
 				}
 			}
 		} catch (UnknownHostException uh) {
-			text_area.setStyle("-fx-text-fill: red");
-			text_area.setText("Unbekannter Host!");
+			text_area.setText("Unbekannter Host");
 			uh.printStackTrace();
 		} catch (IOException io) {
-			text_area.setStyle("-fx-text-fill: red");
 			text_area.setText("Verbindung nicht möglich!");
 			io.printStackTrace();
 		}
@@ -75,7 +73,8 @@ public class GreetingClient extends Application {
 	void action_info(ActionEvent event) {
 		Stage info = new Stage();
 		try {
-			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("info.fxml"));
+			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource(
+					"info.fxml"));
 			info.setTitle("Info");
 			info.setScene(new Scene(root));
 			info.show();

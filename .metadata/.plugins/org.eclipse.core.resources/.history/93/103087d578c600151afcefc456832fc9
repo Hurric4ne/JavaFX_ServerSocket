@@ -73,6 +73,7 @@ public class GreetingClient extends Application {
 
 	@FXML
 	void action_info(ActionEvent event) {
+		info_area.setStyle("-fx-text-fill: black");
 		Stage info = new Stage();
 		try {
 			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("info.fxml"));

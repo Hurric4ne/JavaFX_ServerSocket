@@ -43,7 +43,8 @@ public class GreetingClient extends Application {
 			Socket client = new Socket(serverName, port);
 			if (event.getSource() == btn_connect) {
 				try {
-					BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+					BufferedReader in = new BufferedReader(new InputStreamReader(
+							client.getInputStream()));
 					String line = "";
 					String text = "";
 					while ((line = in.readLine()) != null) {
@@ -56,13 +57,10 @@ public class GreetingClient extends Application {
 				}
 			}
 		} catch (UnknownHostException uh) {
-			text_area.setStyle("-fx-text-fill: red");
-			text_area.setText("Unbekannter Host!");
-			uh.printStackTrace();
-		} catch (IOException io) {
-			text_area.setStyle("-fx-text-fill: red");
-			text_area.setText("Verbindung nicht möglich!");
-			io.printStackTrace();
+			System.err.println("Unbekannter Host");
+			//uh.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 	}
 
@@ -75,7 +73,8 @@ public class GreetingClient extends Application {
 	void action_info(ActionEvent event) {
 		Stage info = new Stage();
 		try {
-			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("info.fxml"));
+			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource(
+					"info.fxml"));
 			info.setTitle("Info");
 			info.setScene(new Scene(root));
 			info.show();

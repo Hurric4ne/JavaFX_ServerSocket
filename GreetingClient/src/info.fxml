@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -8,9 +9,12 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GreetingClient">
    <children>
       <Button fx:id="btn_info_close" layoutX="76.0" layoutY="275.0" mnemonicParsing="false" onAction="#action_about_close" text="Close" />
-      <TextArea fx:id="info_area" prefHeight="264.0" prefWidth="200.0" text="Infos und so!">
+      <TextArea fx:id="info_area" prefHeight="264.0" prefWidth="200.0" text="Projekt ServerSocket mit JavaFX&#10;&#10;Autor: Tobias Scholl @ 2913&#10;Datum: 01.2016&#10;Version: v0.9&#10;&#10;&#10;Copyright © 2016&#10;All rights reserved.">
          <font>
             <Font size="12.0" />
-         </font></TextArea>
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></TextArea>
    </children>
 </Pane>

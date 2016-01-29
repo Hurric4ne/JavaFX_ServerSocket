@@ -36,33 +36,25 @@ public class GreetingClient extends Application {
 
 	@FXML
 	void action_connect(ActionEvent event) {
-		try{
+		if (event.getSource() == btn_connect) {
 			String serverName = "127.0.0.2";
 			int port = 9001;
-			System.out.println("Connecting to " + serverName + " on port " + port);
-			Socket client = new Socket(serverName, port);
-			if (event.getSource() == btn_connect) {
-				try {
-					BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-					String line = "";
-					String text = "";
-					while ((line = in.readLine()) != null) {
-						text = text + line + "\n" ;
-					}
-					text_area.setText(text);
-					client.close();
-				} catch (IOException e) {
-					e.printStackTrace();
+			try {
+				System.out.println("Connecting to " + serverName + " on port "
+						+ port);
+				Socket client = new Socket(serverName, port);
+				BufferedReader in = new BufferedReader(new InputStreamReader(
+						client.getInputStream()));
+				String line = "";
+				String text = "";
+				while ((line = in.readLine()) != null) {
+					text = text + line + "\n" ;
 				}
+				text_area.setText(text);
+				client.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} catch (UnknownHostException uh) {
-			text_area.setStyle("-fx-text-fill: red");
-			text_area.setText("Unbekannter Host!");
-			uh.printStackTrace();
-		} catch (IOException io) {
-			text_area.setStyle("-fx-text-fill: red");
-			text_area.setText("Verbindung nicht möglich!");
-			io.printStackTrace();
 		}
 	}
 
@@ -75,7 +67,8 @@ public class GreetingClient extends Application {
 	void action_info(ActionEvent event) {
 		Stage info = new Stage();
 		try {
-			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("info.fxml"));
+			javafx.scene.Parent root = FXMLLoader.load(getClass().getResource(
+					"info.fxml"));
 			info.setTitle("Info");
 			info.setScene(new Scene(root));
 			info.show();
