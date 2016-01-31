@@ -16,14 +16,11 @@ public class GreetingServer extends Thread {
 	public void run() {
 		while (true) {
 			try {
-				System.out.println("Waiting for client on port "
-						+ serverSocket.getLocalPort() + "...");
+				System.out.println("Waiting for client on port " + serverSocket.getLocalPort() + "...");
 				Socket server = serverSocket.accept();
 				try {
-					BufferedReader br = new BufferedReader(new FileReader(
-							"hallo.txt"));
-					PrintWriter out = new PrintWriter(server.getOutputStream(),
-							true);
+					BufferedReader br = new BufferedReader(new FileReader("hallo.txt"));
+					PrintWriter out = new PrintWriter(server.getOutputStream(),	true);
 					String line = "";
 					while ((line = br.readLine()) != null) {
 						out.println(line);
@@ -50,6 +47,7 @@ public class GreetingServer extends Thread {
 			Thread t = new GreetingServer(port);
 			t.start();
 		} catch (IOException e) {
+			System.err.println("Failed to start Server-Thread!");
 			e.printStackTrace();
 		}
 	}

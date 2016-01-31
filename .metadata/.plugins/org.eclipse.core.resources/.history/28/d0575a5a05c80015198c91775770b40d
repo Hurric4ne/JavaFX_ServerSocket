@@ -52,8 +52,6 @@ public class GreetingClient extends Application {
 					text_area.setText(text);
 					client.close();
 				} catch (IOException e) {
-					text_area.setStyle("-fx-text-fill: red");
-					text_area.setText("IOException!");
 					e.printStackTrace();
 				}
 			}
@@ -93,7 +91,8 @@ public class GreetingClient extends Application {
 	}
 
 	public void start(Stage stage) throws Exception {
-		Parent parent = FXMLLoader.load(getClass().getResource("GUI_Client.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource(
+				"GUI_Client.fxml"));
 		stage.setScene(new Scene(parent));
 		stage.show();
 	}
