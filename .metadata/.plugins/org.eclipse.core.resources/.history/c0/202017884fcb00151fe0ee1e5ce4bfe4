@@ -43,8 +43,8 @@ public class GreetingServer extends Thread {
 	public static void main(String[] args) throws IOException {
 		int port = 9001;
 		try {
-			Thread t = new GreetingServer(port);	//erstellen und starten
-			t.start();								//eines Threads mit dem Port 9001
+			Thread t = new GreetingServer(port);
+			t.start();
 		} catch (IOException e) {
 			System.err.println("Failed to start Server-Thread!");
 			e.printStackTrace();
