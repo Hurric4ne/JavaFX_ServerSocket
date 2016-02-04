@@ -1,6 +1,7 @@
 // File Name GreetingServer.java
 
 import java.net.*;
+import java.util.Scanner;
 import java.io.*;
 
 public class GreetingServer extends Thread {
